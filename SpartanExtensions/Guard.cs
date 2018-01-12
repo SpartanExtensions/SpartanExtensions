@@ -28,8 +28,10 @@ namespace SpartanExtensions
                                         minDigitsBeforeComma, maxDigitsBeforeComma, minDigitsAfterComma, maxDigitsAfterComma);
             var regEx = new Regex(expression);
             if (!regEx.IsMatch(value.ToString(CultureInfo.InvariantCulture)))
+            {
                 throw new Exception(
                     $"Double value doesn't meet the requirements. Expected value: {minDigitsBeforeComma} - minimum digits before comma, {maxDigitsBeforeComma} - maximum digits before comma, {minDigitsAfterComma} - minimum digits after comma, {maxDigitsAfterComma} - maximum digits after comma. Actual value: {value}. Variable- {variableName}. Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -38,7 +40,9 @@ namespace SpartanExtensions
         public static void AgainstEmptyEnumerable<T>(IEnumerable<T> value, string variableName, string methodName)
         {
             if (!value.Any())
+            {
                 throw new Exception($"Enumerable cannot be empty. Variable- {variableName}. Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -48,7 +52,9 @@ namespace SpartanExtensions
         public static void AgainstNull(object value, string variableName, string methodName)
         {
             if (value == null)
+            {
                 throw new Exception($"Object cannot be null. Variable- {variableName}. Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -57,7 +63,9 @@ namespace SpartanExtensions
         public static void AgainstZero(decimal value, string variableName, string methodName)
         {
             if (value == 0)
+            {
                 throw new Exception($"Value cannot be zero. Variable- {variableName}. Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -66,7 +74,9 @@ namespace SpartanExtensions
         public static void AgainstNegativeOrZero(decimal value, string variableName, string methodName)
         {
             if (value <= 0)
+            {
                 throw new Exception($"value cannot be negative or zero. Variable- {variableName}. Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -75,7 +85,9 @@ namespace SpartanExtensions
         public static void AgainstNegative(decimal value, string variableName, string methodName)
         {
             if (value < 0)
+            {
                 throw new Exception($"Value cannot be negative. Variable- {variableName}. Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -85,7 +97,9 @@ namespace SpartanExtensions
         public static void AgainstStringIsNullOrEmpty(string value, string variableName, string methodName)
         {
             if (string.IsNullOrEmpty(value))
+            {
                 throw new Exception($"String cannot be null or empty. Variable- {variableName}. Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -95,7 +109,9 @@ namespace SpartanExtensions
         public static void AgainstStringIsNOTNullOrEmpty(string value, string variableName, string methodName)
         {
             if (!string.IsNullOrEmpty(value))
+            {
                 throw new Exception($"String must be null or empty. Variable- {variableName}. Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -105,7 +121,9 @@ namespace SpartanExtensions
         public static void AgainstStringIsNullOrWhiteSpace(string value, string variableName, string methodName)
         {
             if (string.IsNullOrWhiteSpace(value))
+            {
                 throw new Exception($"String cannot be null, empty, or consist only of white-space characters. Variable- {variableName}, Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -114,7 +132,9 @@ namespace SpartanExtensions
         public static void AgainstEmptyGuid(Guid value, string variableName, string methodName)
         {
             if (value == Guid.Empty)
+            {
                 throw new Exception($"Guid cannot be empty. Variable- {variableName}. Method- {methodName}.");
+            }
         }
 
         /// <summary>
@@ -125,8 +145,10 @@ namespace SpartanExtensions
         {
             var value = obj.GetPropertyValue(field);
             if (value == null)
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     null, UnexpectedObjectValueExceptionReasons.NullReference);
+            }
         }
 
         /// <summary>
@@ -136,8 +158,10 @@ namespace SpartanExtensions
         {
             var value = Convert.ToDecimal(obj.GetPropertyValue(field));
             if (value == 0)
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     value, UnexpectedObjectValueExceptionReasons.ZeroValue);
+            }
         }
 
         /// <summary>
@@ -147,8 +171,10 @@ namespace SpartanExtensions
         {
             var value = Convert.ToDecimal(obj.GetPropertyValue(field));
             if (value < 0)
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     value, UnexpectedObjectValueExceptionReasons.NegativeValue);
+            }
         }
 
         /// <summary>
@@ -159,8 +185,10 @@ namespace SpartanExtensions
         {
             var value = (string)obj.GetPropertyValue(field);
             if (string.IsNullOrEmpty(value))
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     value, UnexpectedObjectValueExceptionReasons.StringIsNullOrEmpty);
+            }
         }
 
         /// <summary>
@@ -171,8 +199,10 @@ namespace SpartanExtensions
         {
             var value = (string)obj.GetPropertyValue(field);
             if (!string.IsNullOrEmpty(value))
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     value, UnexpectedObjectValueExceptionReasons.StringIsNOTNullOrEmpty);
+            }
         }
 
         /// <summary>
@@ -183,8 +213,10 @@ namespace SpartanExtensions
         {
             var value = (string)obj.GetPropertyValue(field);
             if(string.IsNullOrWhiteSpace(value))
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     value, UnexpectedObjectValueExceptionReasons.StringIsNullOrWhiteSpace);
+            }
         }
 
         /// <summary>
@@ -194,8 +226,10 @@ namespace SpartanExtensions
         {
             var value = DateTime.Parse(obj.GetPropertyValue(field).ToString());
             if (value <= new DateTime(1900, 1, 1))
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(), value,
                     UnexpectedObjectValueExceptionReasons.DateValueMustBeGreaterThanMinDate);
+            }
         }
 
         /// <summary>
@@ -205,8 +239,10 @@ namespace SpartanExtensions
         {
             var value = Convert.ToDecimal(obj.GetPropertyValue(field));
             if (value <= 0)
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     value, UnexpectedObjectValueExceptionReasons.NegativeOrZeroValue);
+            }
         }
 
         /// <summary>
@@ -216,13 +252,17 @@ namespace SpartanExtensions
         {
             var valueObj = obj.GetPropertyValue(field);
             if (valueObj == null)
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     null, UnexpectedObjectValueExceptionReasons.NullReference);
+            }
 
             var value = valueObj.ToString();
             if (new Guid(value) == Guid.Empty)
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     value, UnexpectedObjectValueExceptionReasons.EmptyGuid);
+            }
         }
 
         /// <summary>
@@ -232,8 +272,10 @@ namespace SpartanExtensions
         {
             var enumerable = (IEnumerable<TEnumerableItem>)obj.GetPropertyValue(field);
             if (!enumerable.Any())
+            {
                 throw new UnexpectedObjectValueException<T>(field.GetFieldName(),
                     null, UnexpectedObjectValueExceptionReasons.EmptyEnumerable);
+            }
         }
     }
 }
