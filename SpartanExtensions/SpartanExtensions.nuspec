@@ -6,14 +6,14 @@
     <title>$id$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <projectUrl>https://github.com/eBIT/SpartanExtensions/</projectUrl>
+    <projectUrl>https://github.com/SpartanExtensions/SpartanExtensions</projectUrl>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
     <language>en-US</language>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <summary>$description$</summary>
     <copyright>$copyright$</copyright>
-    <tags>extensions productivity helpers helper spartans spartan</tags>
+    <tags>extensions productivity helpers helper spartans spartan csharp dotnet</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.Configuration" />
     </frameworkAssemblies>
