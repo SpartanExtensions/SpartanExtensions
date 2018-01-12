@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SpartanExtensions")]
 [assembly: AssemblyDescription("Productivity extensions for building better applications faster.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Autentica Ltd")]
+[assembly: AssemblyCompany("SpartanExtensions")]
 [assembly: AssemblyProduct("SpartanExtensions")]
-[assembly: AssemblyCopyright("Copyright © 2014 Autentica Ltd")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,4 +31,4 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.1.*")]
